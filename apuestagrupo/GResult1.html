@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+
+{% block title %}
+    Resultados de las Rondas
+{% endblock %}
+
+{% block content %}
+    <h2>Así fueron sus elecciones en 4 de las 8 rondas que jugó:</h2>
+    <ul>
+        {% for result in round_results %}
+            <li>Ronda {{ result.round_number }}: Usted eligió la {{result.choice}} y la opción escogida por la sesión fue {{ result.winning_choice }}, por ello {{ result.result }} y obtuvo {{ result.earnings }} </li>
+        {% endfor %}
+    </ul>
+       <h2>Usted ha obtenido {{total_earnings}} tokens en total </h2>
+
+            <form method="post" action="/GResult1/">
+
+        <button type="submit" class="btn btn-primary">Siguiente</button>
+    </form>
+<br><br>
+{% endblock %}

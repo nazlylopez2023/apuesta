@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% extends "global/Page.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2>Resultados</h2>
+        <p>En esta ronda, elegiste: {{ player.choice }}</p>
+        <p>Las ganancias por tu elección en esta ronda, son: {{ earnings_round }}</p>
+
+        <p>La opción ganadora en esta ronda fue: {{ player.winning_choice }}</p>
+
+        {% if player.choice == player.winning_choice %}
+            <p>Felicidades ¡Ganaste!</p>
+        {% else %}
+            <p>Lo siento, perdiste.</p>
+        {% endif %}
+
+
+        <p>Dotación disponible para la siguiente ronda: {{ endowment_next_round }}</p>
+
+                <br>
+        <button type="submit" class="btn btn-primary">Siguiente</button>
+<br><br>
+    </div>
+{% endblock %}
+
+
+
+

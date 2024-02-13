@@ -1,0 +1,53 @@
+from os import environ
+
+SESSION_CONFIGS = [
+    # dict(
+    #     name='apuesta',
+    #     display_name="Elección candidatos",
+    #     app_sequence=['apuestaapp', 'apuestagrupo'],
+    #     num_demo_participants=3,
+    # ),
+
+     dict(
+         name = 'apuestagrupo',
+         display_name = "Elección candidatos por grupo",
+         app_sequence = ['apuestagrupo'],
+         num_demo_participants = 3,
+     ),
+]
+
+INSTALLED_APPS = [
+    #'apuestaapp',
+    'apuestagrupo'
+]
+
+# if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
+# in SESSION_CONFIGS, except those that explicitly override it.
+# the session config can be accessed from methods in your apps as self.session.config,
+# e.g. self.session.config['participation_fee']
+
+SESSION_CONFIG_DEFAULTS = dict(
+    real_world_currency_per_point=1, participation_fee=0, doc=""
+)
+
+PARTICIPANT_FIELDS = []
+SESSION_FIELDS = []
+
+# ISO-639 code
+# for example: de, fr, ja, ko, zh-hans
+LANGUAGE_CODE = 'es'
+
+# e.g. EUR, GBP, CNY, JPY
+REAL_WORLD_CURRENCY_DECIMAL_PLACES = 0
+USE_POINTS = True
+POINTS_CUSTOM_NAME = 'tokens'
+
+ADMIN_USERNAME = 'admin'
+# for security, best to set admin password in an environment variable
+ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
+
+DEMO_PAGE_INTRO_HTML = """ """
+
+SECRET_KEY = '7672351451637'
+
+STATIC_ROOT = 'staticfiles'
